@@ -25,3 +25,6 @@ It opens multiselect prompt to select technologies. You can also type and select
   [ ]  Helm
 > [x]  Hugo
 ```
+
+## LICENSE
+[MIT](LICENSE)
