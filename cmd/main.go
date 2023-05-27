@@ -5,8 +5,11 @@ import (
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/c-bata/go-prompt"
+	"github.com/gozeloglu/gitignore/internal/file"
 	"github.com/gozeloglu/gitignore/internal/http"
 	"log"
+	"os"
+	"path"
 	"strings"
 )
 
@@ -31,6 +34,15 @@ func main() {
 			log.Fatalln(err)
 		}
 		fmt.Println(gitignoreFile)
+		dir, err := os.Getwd()
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		err = file.Save(path.Join(dir, ".gitignore"), []byte(gitignoreFile))
+		if err != nil {
+			log.Fatalln(err)
+		}
 	} else if flag.Arg(0) == "cli" {
 		t := prompt.Input(">>> ", completer, prompt.OptionPrefixTextColor(prompt.Blue))
 		inp := strings.Split(t, " ")
@@ -48,6 +60,15 @@ func main() {
 			log.Fatalln(err)
 		}
 		fmt.Println(gitignore)
+		dir, err := os.Getwd()
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		err = file.Save(path.Join(dir, ".gitignore"), []byte(gitignore))
+		if err != nil {
+			log.Fatalln(err)
+		}
 	} else {
 		fmt.Println(flag.Arg(0), "is wrong argument")
 	}
