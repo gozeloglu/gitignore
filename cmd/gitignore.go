@@ -33,7 +33,6 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		fmt.Println(gitignoreFile)
 		dir, err := os.Getwd()
 		if err != nil {
 			log.Fatalln(err)
@@ -43,8 +42,13 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
+		fmt.Printf("The .gitignore file has been created and saved in %s.\n", dir)
 	} else if flag.Arg(0) == "cli" {
 		t := prompt.Input(">>> ", completer, prompt.OptionPrefixTextColor(prompt.Blue))
+		if strings.Trim(t, "") == "" {
+			fmt.Println("No input provided. Please enter at least one programming language, operating system, framework, IDE, editor, or any other relevant information.")
+			os.Exit(1)
+		}
 		inp := strings.Split(t, " ")
 		var opts []string
 		for _, s := range inp {
@@ -59,7 +63,6 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		fmt.Println(gitignore)
 		dir, err := os.Getwd()
 		if err != nil {
 			log.Fatalln(err)
@@ -69,8 +72,10 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
+		fmt.Printf("The .gitignore file has been created and saved in %s.\n", dir)
 	} else {
 		fmt.Println(flag.Arg(0), "is wrong argument")
+		os.Exit(1)
 	}
 }
 
