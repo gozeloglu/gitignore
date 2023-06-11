@@ -15,6 +15,8 @@ preference.
 
 ## Usage
 
+### With CLI
+
 ```shell
 gitignore cli
 ```
@@ -25,6 +27,8 @@ It opens a new prompt to write technologies by helping auto-complete feature. Ty
 ```shell
 >>> Go GoLand macOS 
 ```
+
+### With multiselect prompt
 
 ```shell
 gitignore
