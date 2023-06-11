@@ -7,10 +7,11 @@ gitignore is a command line application that enables us to create `.gitignore` f
 ```shell
 git clone https://github.com/gozeloglu/gitignore.git
 cd gitignore
-go install cmd/gitignore.go cmd/constant.go
+go build -o ~/go/bin/gitignore cmd/*
 ```
 
-After you run these commands, you will be able to run `gitignore`. 
+After you run these commands, you will be able to run `gitignore`. You may change the target file location(`~/go/bin/gitignore`) with your 
+preference.
 
 ## Usage
 
